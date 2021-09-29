@@ -1,20 +1,35 @@
 //for @emotion
 import { Animated, Basic, bounce, Combined } from '../shared/styles'
-import Card from '../components/card'
+import Card from '../components/card';
+import Header from '../components/header';
 
+import Head from 'next/head';
 
-import Head from 'next/head'
+//bizniz logic of importing data for card component
+import { getCardData } from '../lib/cards';
 
-export default function Home() {
+export async function getStaticProps() {
+  const cardData = getCardData()
+  console.log(cardData)
+  return {
+    props: {
+      cardData
+    }
+  }
+}
+
+export default function Home({cardData}) {
   return (
     <div className="container">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+        <Header/>
       </Head>
 
       <main>
       <Card/>
+      <p>{cardData}</p>
       </main>
 
       <footer>
