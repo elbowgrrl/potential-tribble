@@ -2,6 +2,7 @@
 import { Animated, Basic, bounce, Combined } from '../shared/styles'
 import Card from '../components/card';
 import Header from '../components/header';
+import data from '/data/landscapes.json';
 
 import Head from 'next/head';
 
@@ -9,16 +10,19 @@ import Head from 'next/head';
 import { getCardData } from '../lib/cards';
 
 export async function getStaticProps() {
-  const cardData = getCardData()
-  console.log(cardData)
+  //This could be an API call instead of a file read.
+  const allData = await data;
+
   return {
     props: {
-      cardData
-    }
-  }
+      allData,
+    },
+  };
 }
 
-export default function Home({cardData}) {
+export default function Home({allData}) {
+  // console.log(allData, "allData")
+  const albumData = allData.album;
   return (
     <div className="container">
       <Head>
@@ -27,9 +31,18 @@ export default function Home({cardData}) {
         <Header/>
       </Head>
 
-      <main>
-      <Card/>
-      <p>{cardData}</p>
+      <main>{albumData.map((data) => (
+        <Card
+          key={data.id}
+          img={data.img}
+          date={data.date}
+          title={data.title}
+          featured={data.featured}
+          description={data.description}
+        />
+      ))}
+      
+      
       </main>
 
       <footer>

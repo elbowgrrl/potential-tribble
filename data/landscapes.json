@@ -9,7 +9,7 @@
       "id":1,
       "title": "Nandhaka Pieris",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "img": "img/landscape1.jpg",
+      "img": "https://i.imgur.com/p8zPRHn.jpeg",
       "date": "2015-05-01",
       "featured": true
     },
