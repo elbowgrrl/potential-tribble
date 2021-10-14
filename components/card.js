@@ -7,17 +7,17 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default function MultiActionAreaCard(props) {
   
-  // const imgPath = `/${props.img}`
-  const imgPath = [props.img]
+  const imgPath = `/${props.img}`
+  // const imgPath = props.img
 
-  // console.log(imgPath, "imgPath");
+  console.log(imgPath, "imgPath");
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={imgPath}
+          image="/img/landscape1.jpg"
           alt="green iguana"
         />
         <CardContent>

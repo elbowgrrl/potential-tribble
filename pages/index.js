@@ -6,9 +6,6 @@ import data from '/data/landscapes.json';
 
 import Head from 'next/head';
 
-//bizniz logic of importing data for card component
-import { getCardData } from '../lib/cards';
-
 export async function getStaticProps() {
   //This could be an API call instead of a file read.
   const allData = await data;
@@ -20,7 +17,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({allData}) {
+export default function Home({allData}, {}) {
   // console.log(allData, "allData")
   const albumData = allData.album;
   return (
